@@ -1,7 +1,11 @@
 {
   "autoload": {
     "psr-4": {
+<<<<<<< HEAD
       "App\\": "src"
+=======
+      "App\\": "App"
+>>>>>>> origin/master
     }
   }
 }
