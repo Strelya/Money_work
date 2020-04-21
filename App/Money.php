@@ -36,7 +36,7 @@ class Money
 
     public function equals(self $money): bool
     {
-        return $this->currency->equalsMoney($money->getCurrency());
+        return $this->currency->equals($money->getCurrency());
     }
 
     public function add(self $money): float
