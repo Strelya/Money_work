@@ -2,46 +2,45 @@
 
 namespace App;
 
-final class Money
+class Money
 {
     private $amount;
     private $currency;
 
-    public function __construct($amount, Currency $currency)
+    public function __construct(float $amount, Currency $currency)
     {
-        $this->setAmount($amount);
-        $this->setCurrency($currency);
-    }
-
-    private function setAmount($amount)
-    {
-        $this->amount = (int)$amount;
-    }
-
-    private function setCurrency(Currency $currency)
-    {
+        if ($amount < 0) {
+            throw new InvalidArgumentException('Your amount must be 0 or higher');
+        }
+        $this->amount = $amount;
         $this->currency = $currency;
     }
 
-    public function getAmount()
+    public function getAmount(): float
     {
         return $this->amount;
     }
-
-    public function getCurrency()
+    public function getCurrency(): Currency
     {
         return $this->currency;
     }
 
-    public function equalsMoney(Money $money)
+    public function setAmount(float $amount)
     {
-//        if ()
-//
-        return
-            $money->currency->equals($this->getCurrency()) &&//вызывается с карренчи, убрать!!!
-            $money->getAmount() === $this->getAmount();
-//
+        $this->amount = $amount;
+    }
+    public function setCurrency(Currency $currency)
+    {
+        $this->currency = $currency;
     }
 
+    public function equals(self $money): bool
+    {
+        return $this->currency->equalsMoney($money->getCurrency());
+    }
 
+    public function add(self $money): float
+    {
+        return $this->amount + $money->getAmount();
+    }
 }
