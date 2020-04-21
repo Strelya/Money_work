@@ -2,30 +2,34 @@
 
 namespace App;
 
-class Currency
+final class Currency
 {
 
     private $isoCode;
 
-    public function __construct($isoCode) {
+    public function __construct($isoCode)
+    {
         $this->setIsoCode($isoCode);
     }
 
-    private function setIsoCode($isoCode) {
-        if(! preg_match('/^[A-Z]{3}$/', $isoCode)) {
+    private function setIsoCode($isoCode)
+    {
+        if (!preg_match('/^[A-Z]{3}$/', $isoCode)) {
             throw new \InvalidArgumentException('Invalid format Currency');
         }
         $this->isoCode = $isoCode;
     }
 
-    public function getIsoCode() {
+    public function getIsoCode()
+    {
         return $this->isoCode;
     }
 
-    public function equals(Currency $currency) {
-        if($this->isoCode === $currency->getIsoCode()) {
+    public function equals(Currency $currency)
+    {
+        if ($this->isoCode === $currency->getIsoCode()) {
             echo 'equals true';
         }
-            echo 'equals false';
+        echo 'equals false';
     }
 }

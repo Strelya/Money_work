@@ -7,28 +7,34 @@ class Money
     private $amount;
     private $currency;
 
-    public function __construct($amount, Currency $currency) {
+    public function __construct($amount, Currency $currency)
+    {
         $this->setAmount($amount);
         $this->setCurrency($currency);
     }
 
-    private function setAmount($amount) {
+    private function setAmount($amount)
+    {
         $this->amount = (int)$amount;
     }
 
-    private function setCurrency(Currency $currency) {
+    private function setCurrency(Currency $currency)
+    {
         $this->currency = $currency;
     }
 
-    public function getAmount() {
+    public function getAmount()
+    {
         return $this->amount;
     }
 
-    public function getCurrency() {
+    public function getCurrency()
+    {
         return $this->currency;
     }
 
-    public function equalsMoney(Money $money) {
+    public function equalsMoney(Money $money)
+    {
 //        if ()
 //
         return
