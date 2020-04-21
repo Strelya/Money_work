@@ -28,8 +28,8 @@ final class Currency
     public function equals(Currency $currency)
     {
         if ($this->isoCode === $currency->getIsoCode()) {
-            echo 'equals true';
+            return true;
         }
-        echo 'equals false';
+        return false;
     }
 }

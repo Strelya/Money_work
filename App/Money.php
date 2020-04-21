@@ -2,7 +2,7 @@
 
 namespace App;
 
-class Money
+final class Money
 {
     private $amount;
     private $currency;
